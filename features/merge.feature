@@ -16,17 +16,17 @@ Feature: Merge Article
 
   Scenario: Admin sees merge functionality
     Given I am logged into the admin panel 
-    And I am on the "Edit" page for "art1"
+    And I am on the Edit page for "art1"
     Then I should see "Merge Articles"
 
   Scenario: Non-admin should not see merge functionality
     Given I am not an admin
-    And I on the "Edit" page for "art1"
+    And I on the Edit page for "art1"
     Then I should not see 'Merge Articles'
 
   Scenario: When articles are merged, the merged article should contain the text of both previous articles.
     Given I have merged "art1" and "art2"
-    And I am on the "Show" page for "art1"
+    And I am on the Show page for "art1"
     Then I should see "what a baller"
     And I should see "hes a stud"
 
@@ -40,7 +40,7 @@ Feature: Merge Article
     Given "weirdo" is a comment for "art1"
     And "bigger weirdo" is a comment for "art2"
     Given I have merged "art1" and "art2"
-    When I am on the "Show" page for "art1"
+    When I am on the Show page for "art1"
     Then I should see "weirdo"
     And I should see "bigger weirdo"
 

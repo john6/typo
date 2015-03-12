@@ -29,9 +29,14 @@ Given /^I am not an admin$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-Given /^I on the "(.*?)" page for "(.*?)"$/ do |arg1, arg2|
+Given /^I on the Edit page for "(.*?)"$/ do |arg1|
+  visit path_to(arg1)
+end
+
+Given /^I on the Show page for "(.*?)"$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
+
 
 Then /^I should not see 'Merge Articles'$/ do
   pending # express the regexp above with the code you wish you had
