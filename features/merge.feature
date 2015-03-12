@@ -9,8 +9,14 @@ Feature: Merge Article
 
     | title | author | body          |
     | art1  | John   | what a baller |
-    | art2  | Rafi   | hes a stud   |
+    | art2  | Rafi   | hes a stud    |
     | art3  | Daxi   | lol           |
+
+    And the following comments exist:
+
+    | article | author | body           |
+    | art1    | Bill   | weirdo         |
+    | art2    | Bob    | bigger weirdo  |
 
     And the blog is set up
 
