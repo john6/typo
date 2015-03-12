@@ -32,7 +32,7 @@ Feature: Merge Article
 
   Scenario: When articles are merged, the merged article should have one author (either one of the authors of the original article).  
     Given I have merged "art1" and "art2"
-    And I am on the "All Articles" page
+    And I am on the All Articles page
     Then the author for "art1" should be "John"
     And I should not see "Rafi"
 
@@ -46,6 +46,6 @@ Feature: Merge Article
 
   Scenario: The title of the new article should be the title from either one of the merged articles.
     Given I have merged "art1" and "art2"
-    And I am on the "All Articles" page
+    And I am on the All Articles page
     Then the title for "art1" should be "art1"
     And I should not see "art2"

@@ -148,12 +148,14 @@
     </ul>
   </div> 
 
-  <div class=''>
-    <h4><%= _("Merge Articles") %></h4>
-    <ul id='merge_with' class='inputs-list'>
-      <%= render 'admin/content/attachment', { :attachment_num => 1, :hidden => false } -%>
-    </ul>
-  </div> 
+  <tr class='noborder'>
+      <td colspan=5>
+        <h4><%= _("Merge Articles") %></h4>
+        <input  id="merge_with" type="text" name="merge_with" class='large' />
+        <%= submit_tag(_("Merge"), {:class => 'btn'}) %>
+        <span id='spinner' style="display:none;"><%= image_tag('spinner.gif') %></span>
+      </td>
+   </tr>
 
   </div>
 

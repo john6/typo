@@ -17,7 +17,7 @@ Given /^the following articles exist:$/ do |table|
 
   # | title | author | body          |
   # | art1  | John   | what a baller |
-  # | art2  | Rafi   | hes a stud   |
+  # | art2  | Rafi   | hes a stud    |
   # | art3  | Daxi   | lol           |
 
   FactoryGirl.create(:article, :title => 'art1', :author => 'John', :body => 'what a baller')
@@ -26,7 +26,7 @@ Given /^the following articles exist:$/ do |table|
 end
 
 Given /^I am not an admin$/ do
-  pending # express the regexp above with the code you wish you had
+  assert User.admin? == false
 end
 
 Given /^I on the Edit page for "(.*?)"$/ do |arg1|
@@ -34,12 +34,15 @@ Given /^I on the Edit page for "(.*?)"$/ do |arg1|
 end
 
 Given /^I on the Show page for "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  visit path_to(arg1)
 end
 
-
 Then /^I should not see 'Merge Articles'$/ do
-  pending # express the regexp above with the code you wish you had
+    if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
 end
 
 Given /^I have merged "(.*?)" and "(.*?)"$/ do |arg1, arg2|
@@ -47,7 +50,7 @@ Given /^I have merged "(.*?)" and "(.*?)"$/ do |arg1, arg2|
 end
 
 Then /^the author for "(.*?)" should be "(.*?)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  assert Article.find_by_title(arg1).author == arg2
 end
 
 Given /^"(.*?)" is a comment for "(.*?)"$/ do |arg1, arg2|
@@ -55,5 +58,5 @@ Given /^"(.*?)" is a comment for "(.*?)"$/ do |arg1, arg2|
 end
 
 Then /^the title for "(.*?)" should be "(.*?)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  assert Article.find_by_title(arg1).title == arg2
 end

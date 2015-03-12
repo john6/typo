@@ -20,6 +20,10 @@ module NavigationHelpers
 
     when /^the Edit page for "(.*)"$/ then "/admin/content/edit/#{Article.find_by_title($1).id}"
 
+    when /^the Show page for "(.*)"$/
+      "/#{Article.find_by_title($1).year_url}/#{Article.find_by_title($1).month_url}/#{Article.find_by_title($1).day_url}/#{Article.find_by_title($1).title}"
+
+    when /^the All Articles page$/ then '/admin/content'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
